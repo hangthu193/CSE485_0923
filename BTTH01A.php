@@ -23,8 +23,6 @@
     }
     
     calculateAndDisplayResults($arrs);
-    
-
 
 ?>
 
@@ -256,7 +254,7 @@ echo "Chuỗi nhỏ nhất là $shortestString, độ dài = $minLength<br>";
     echo "</pre>";
 
     echo "<br>";
-    echo "Sắp xếp mảng theo chiều giảm các key:\n";
+    echo "Sắp xếp mảng theo chiều giảm các key:";
     echo "<pre>";
     var_dump($descendingKeys);
     echo "</pre>";
@@ -285,14 +283,13 @@ echo "Chuỗi nhỏ nhất là $shortestString, độ dài = $minLength<br>";
         }
     }
     echo "<br>";
-
+?>
+    <!-- bai14 -->
+<?php
     $array1 = [
         [77, 87],
         [23, 45]
     ];
-?>
-    <!-- bai14 -->
-<?php
     $array2 = [
         'giá trị 1', 'giá trị 2'
     ];
@@ -302,8 +299,9 @@ echo "Chuỗi nhỏ nhất là $shortestString, độ dài = $minLength<br>";
     foreach ($array2 as $key => $value) {
         $result[$key] = array_merge([$value], $array1[$key]);
     }
-    
+    echo "<br>";
     print_r($result);
+    echo "<br>";
     
     
 ?>
