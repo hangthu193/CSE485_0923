@@ -1,10 +1,12 @@
 <?php 
     require_once APP_ROOT.'/app/models/BaiHat.php';
+    require_once APP_ROOT . "/app/libs/DBConnection.php";
     class BaiHatService{
-        public function getAllBaiHat(){
+        public static function getAllBaiHat(){
             //buoc1: ketnoi db
             try{
-                $conn = new PDO('mysql:host=localhost;dbname=quanlybaihat','root','');
+                $pdo = new DBConnection();
+                $conn = $pdo->getConnection();
                 $sql = "SELECT * FROM baihat ORDER BY id DESC";
                 $stmt = $conn->query($sql);
 
@@ -15,9 +17,45 @@
                 }
                 return $BaiHats;
             }catch(PDOException $e){
-                return $BaiHats = [];
+                
 
             }
         }
+        public static function create($tenBaiHat, $caSi, $idTheLoai){
+            $pdo = new DBConnection();
+            $conn = $pdo->getConnection();
+            $sql = "INSERT INTO baihat (tenBaiHat, caSi, idTheLoai) VALUES (?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$tenBaiHat, $caSi, $idTheLoai]);
+            
+        }
+        public static function delete($id)
+            {
+                $pdo = new DBConnection();
+                $conn = $pdo->getConnection();
+                $sql = "delete from baihat where id = ?";
+                $stmt=$conn->prepare($sql);
+                $stmt->execute([$id]);
+            }
+        public static function findById($id)
+            {
+                $pdo = new DBConnection();
+                $conn = $pdo->getConnection();
+                $sql = "select * from baihat where id=?";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([$id]);
+                $baihats = $stmt->fetch();
+                $baihat = new BaiHat($baihats['id'],$baihats['tenBaiHat'],$baihats['caSi'],$baihats['idTheLoai']);
+                return $baihat;
+            }
+    
+        public static function edit($id,$tenBaiHat, $caSi, $idTheLoai)
+            {
+                $pdo = new DBConnection();
+                $conn = $pdo->getConnection();
+                $sql = "UPDATE baihat SET tenBaiHat=?, caSi=?, idTheLoai=? WHERE id=?";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([$tenBaiHat, $caSi, $idTheLoai,$id]);
+            }
     }
 ?>

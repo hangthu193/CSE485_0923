@@ -23,7 +23,8 @@
                     }
                 ?>
                 <h3 class=" text-center text-uppercase">Thêm bài hát mới</h3>
-                <form action="themBaiHat_process.php" method="post">
+                <a class="btn btn-primary mb-3" href="<?php echo DOMAIN."/public"?>">Trở về trang chủ</a>
+                <form action="<?php echo DOMAIN."/public/index.php?action=store"?>" method="post">
                     <div class="row input-group mb-3">
                         <div class="col-md-4 ">
                             Tên bài hát
@@ -38,6 +39,14 @@
                         </div>
                         <div class="col-md-8">
                             <input type="text" name="peoplename" id="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row input-group mb-3">
+                        <div class="col-md-4 ">
+                            ID thể loại
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" name="idtheloai" id="" class="form-control">
                         </div>
                     </div>
                     <div class="row">
