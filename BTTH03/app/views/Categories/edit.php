@@ -18,38 +18,22 @@
 
             <div class="main-content vh-100 p-3">
                 <h3 class=" text-center text-uppercase">Sửa thông tin bài hát</h3>
-                <a class="btn btn-primary mb-3" href="<?php echo DOMAIN."/public"?>">Trở về trang chủ</a>
-                <form action="<?php echo DOMAIN ."/public/index.php?action=update"?>" method="post">
+                <a class="btn btn-primary mb-3" href="<?php echo DOMAIN."/public/theloai.php"?>">Trở về trang chủ</a>
+                <form action="<?php echo DOMAIN ."/public/theloai.php?action=update"?>" method="post">
                     <div class="row input-group mb-3">
                         <div class="col-md-4 ">
                             ID
                         </div>
                         <div class="col-md-8">
-                            <input type="text" name="id" id="id" class="form-control" value="<?php echo $baihat->getId() ?>">
+                            <input type="text" name="id" id="id" class="form-control" value="<?php echo $theloai->getId() ?>">
                         </div>
                     </div>
                     <div class="row input-group mb-3">
                         <div class="col-md-4 ">
-                            Tên bài hát
+                            Tên thê loại
                         </div>
                         <div class="col-md-8">
-                            <input type="text" name="singname" id="singname" class="form-control" value="<?php echo $baihat->getTenBaiHat() ?>" required>
-                        </div>
-                    </div>
-                    <div class="row input-group mb-3">
-                        <div class="col-md-4 ">
-                            Ca sĩ
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" name="peoplename" id="peoplename" class="form-control" value="<?php echo $baihat->getCaSi() ?>" required>
-                        </div>
-                    </div>
-                    <div class="row input-group mb-3">
-                        <div class="col-md-4 ">
-                            ID thể loại
-                        </div>
-                        <div class="col-md-8">
-                            <input type="text" name="idtheloai" id="idtheloai" class="form-control" value="<?php echo $baihat->getIdTheLoai() ?>" required>
+                            <input type="text" name="name" id="name" class="form-control" value="<?php echo $theloai->getTenTheLoai() ?>" required>
                         </div>
                     </div>
                     <div class="row">

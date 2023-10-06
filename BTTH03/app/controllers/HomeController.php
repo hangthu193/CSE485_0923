@@ -7,13 +7,6 @@ class HomeController{
 
         include APP_ROOT.'/app/views/home/index.php';
     }
-    public function theloai(){
-        require_once APP_ROOT.'/app/services/TheLoaiService.php';
-        $theloaiService = new TheLoaiService();
-        $theloais  = $theloaiService ->getAllTheLoai();
-
-        include APP_ROOT.'/app/views/home/theloai.php';
-    }
 
     public function create(){
         include APP_ROOT . "/app/views/Sings/baiHat_them.php";
@@ -42,13 +35,13 @@ class HomeController{
     }
     public function edit(){
         $id = $_GET['id'];
-        $employee = BaiHatService::findById($id);
+        $baihat = BaiHatService::findById($id);
         include APP_ROOT . "/app/views/Sings/baiHat_Sua.php";
     }
 
     public function update()
     {
-        if(isset($_POST['singname']) && isset($_POST['peoplename']) && isset($_POST['idtheloai'])) {
+        if(isset($_POST['sbmSave'])) {
             $id = $_POST['id'];
             $tenBaiHat = $_POST['singname'];
             $caSi = $_POST['peoplename'];

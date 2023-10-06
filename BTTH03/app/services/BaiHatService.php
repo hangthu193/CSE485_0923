@@ -44,8 +44,8 @@
                 $sql = "select * from baihat where id=?";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([$id]);
-                $baihats = $stmt->fetch();
-                $baihat = new BaiHat($baihats['id'],$baihats['tenBaiHat'],$baihats['caSi'],$baihats['idTheLoai']);
+                $data = $stmt->fetch();
+                $baihat = new BaiHat($data['id'],$data['tenBaiHat'],$data['caSi'],$data['idTheLoai']);
                 return $baihat;
             }
     

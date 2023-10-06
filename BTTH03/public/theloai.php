@@ -1,13 +1,13 @@
 <?php
 require_once('../app/config/config.php');
-
-$controller = isset($_GET['controller'])?$_GET['controller']:'home';
+$controll = isset($_GET['controller'])?$_GET['controller']:'category';
 $action = isset($_GET['action'])?$_GET['action']:'theloai';
+$controller = ucfirst($controll);
+$controllers = $controller . "Controller";
+$controllerPath = '/app/controllers/' . $controllers . '.php';
 
-if($controller == 'home'){
-    require_once APP_ROOT.'/app/controllers/HomeController.php';
-    $homeController = new HomeController();
-    $homeController->theloai();
-}
+require_once(APP_ROOT . $controllerPath);
+$objController = new $controllers();
+$objController->$action();
 
 ?>

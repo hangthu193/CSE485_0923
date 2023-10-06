@@ -31,18 +31,18 @@
             </thead>
             <tbody>
                 <?php 
-                    foreach($BaiHats as $baihat){
+                    foreach($BaiHats as $data){
                 ?>
                     <tr>
-                        <th scope="row"><?php echo $baihat->getId();?></th>
-                        <td><?php echo $baihat->getTenBaiHat();?></td>
-                        <td><?php echo $baihat->getCaSi();?></td>
-                        <td><?php echo $baihat->getIdTheLoai();?></td>
+                        <th scope="row"><?php echo $data->getId();?></th>
+                        <td><?php echo $data->getTenBaiHat();?></td>
+                        <td><?php echo $data->getCaSi();?></td>
+                        <td><?php echo $data->getIdTheLoai();?></td>
                         <td>
-                            <a href="<?= DOMAIN . '/public/index.php?action=edit&id='.$baihat->getId(); ?> "><i class="bi bi-pencil-square"></i></a>
+                            <a href="<?= DOMAIN . '/public/index.php?action=edit&id='.$data->getId(); ?> "><i class="bi bi-pencil-square"></i></a>
                         </td>
                         <td>
-                            <a href="<?= DOMAIN . '/public/index.php?action=delete&id='.$baihat->getId(); ?>" <?= $baihat->getId(); ?> onclick=" return confirm('Bạn có chắc chắn muốn xoá?');">
+                            <a href="<?= DOMAIN . '/public/index.php?action=delete&id='.$data->getId(); ?>" <?= $data->getId(); ?> onclick=" return confirm('Bạn có chắc chắn muốn xoá?');">
                                     <i class="bi bi-trash3"></i>
                             </a>
                         </td>

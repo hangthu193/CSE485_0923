@@ -14,8 +14,8 @@
 <body>
 <div class = "container">
         <h3 class="text-center text-uppercase text-success my-3">Thể Loại</h3>
-        <a href="<?= DOMAIN.'app/views/Sings/baiHat_them.php'; ?>" class = 'btn btn-success'>Thêm mới</a>
-        <a href="" class="btn btn-success">Bài hát</a>
+        <a href="<?= DOMAIN . "/public/theloai.php?action=create" ?>" class = 'btn btn-success'>Thêm mới</a>
+        <a href="<?= DOMAIN.'/public'; ?>" class="btn btn-success">Bài hát</a>
         <table class="table">
             <thead>
                 <tr>
@@ -27,37 +27,19 @@
             </thead>
             <tbody>
                 <?php 
-                    foreach($theloais as $theloai){
+                    foreach($theloais as $data){
                 ?>
                         <tr>
-                        <th scope="row"><?php echo $theloai->getId();?></th>
-                        <td><?php echo $theloai->getTenTheLoai();?></td>
+                        <th scope="row"><?php echo $data->getId();?></th>
+                        <td><?php echo $data->getTenTheLoai();?></td>
                         
                         <td>
-                            <a href="<?= DOMAIN.'app/views/Sings/baiHat_Sua.php?id='.$theloai->getId(); ?>"><i class="bi bi-pencil-square"></i></a>
+                            <a href="<?= DOMAIN . '/public/theloai.php?action=edit&id='.$data->getId(); ?> "><i class="bi bi-pencil-square"></i></a>
                         </td>
                         <td>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $theloai->getId(); ?>">
+                            <a href="<?= DOMAIN . '/public/theloai.php?action=delete&id='.$data->getId(); ?>" <?= $data->getId(); ?> onclick=" return confirm('Bạn có chắc chắn muốn xoá?');">
                                     <i class="bi bi-trash3"></i>
-                                </a>
-                                <!-- Modal -->
-                                <div class="modal fade" id="deleteModal<?= $theloai->getId(); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">DELETE User</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Are you sure detele the user have id: <?= $theloai->getId(); ?>?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <a href="Sings/baiHat_xoa_preocess.php?id='.$baihat->getId(); ?>" class="btn btn-success">OK</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            </a>
                         </td>
                 </tr>
                 <?php
